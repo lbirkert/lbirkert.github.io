@@ -6,13 +6,18 @@
 </script>
 
 <hero>
-    <h1 class:show>Lucas Birkert</h1>
+    <div class="avatar">
+        <div>
+            <h1 class:show>Lucas Birkert</h1>
 
-    <p class:show>Web Developement & Design</p>
+            <p class:show>Web Developement & Design</p>
 
-    <br />
+            <br />
 
-    <p>I am a web and software developer focusing on simplicity.</p>
+            <p>I am a web and software developer focusing on simplicity.</p>
+        </div>
+        <img src="lucas.jpg" alt="Lucas" />
+    </div>
 </hero>
 
 <main>
@@ -73,6 +78,18 @@
         width: 90%;
         max-width: 600px;
         margin: auto;
+    }
+
+    hero img {
+        width: 110px;
+        height: 110px;
+        border-radius: 20px;
+        margin-left: auto;
+    }
+
+    .avatar {
+        display: flex;
+        column-gap: 30px;
     }
 
     main svg {
