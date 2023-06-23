@@ -21,6 +21,8 @@
   "type": "module",
   "dependencies": {
     "@bun-community/sveltekit-adapter-bun": "^0.0.6",
+    "@fontsource/abril-fatface": "^5.0.3",
+    "@fontsource/quicksand": "^5.0.3",
     "@rollup/plugin-commonjs": "^24.0.0",
     "@rollup/plugin-json": "^6.0.0",
     "@rollup/plugin-node-resolve": "^15.0.1",

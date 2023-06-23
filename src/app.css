@@ -1,0 +1,30 @@
+:root {
+  --brand-primary: #dec4c4;
+  --brand-secondary: #b49a9a;
+  --brand-background: #674c4c;
+
+  --brand-on-secondary-primary: #5e4444;
+  --brand-on-secondary-secondary: #6d4f4f;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
+}
+
+body {
+  background-color: var(--brand-background);
+}
+
+h1 {
+  color: var(--brand-primary);
+  font-family: 'Abril Fatface', sans-serif;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+
+p {
+  color: var(--brand-secondary);
+}
