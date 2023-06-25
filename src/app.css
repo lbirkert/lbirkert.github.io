@@ -21,6 +21,10 @@ html {
   box-sizing: border-box;
 }
 
+*::-webkit-scrollbar {
+  display: none;
+}
+
 body {
   background-color: var(--brand-background);
   font-family: 'Inter', sans-serif;
