@@ -1,27 +1,35 @@
 :root {
-  --brand-primary: #dec4c4;
-  --brand-secondary: #b49a9a;
-  --brand-background: #674c4c;
+  --brand-background: #141419;
+  --brand-background: #1e1f26;
+  --brand-primary: #ddd;
+  --brand-secondary: #888;
 
-  --brand-on-secondary-primary: #674c4c;
-  --brand-on-secondary-secondary: #6d4f4f;
+  --brand-on-secondary-primary: #ddd;
+  --brand-on-secondary-secondary: #888;
+
+  --brand-background-secondary: #a3a6cc;
+  --brand-background-secondary: #1e1f26;
+  --brand-background-secondary: #141419;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Quicksand', sans-serif;
 }
 
 body {
   background-color: var(--brand-background);
+  font-family: 'Inter', sans-serif;
 }
 
-h1 {
+h1, h2, h3, h4, h5, h6 {
   color: var(--brand-primary);
-  font-family: 'Abril Fatface', sans-serif;
-  font-weight: 400;
+  font-family: "Inter", sans-serif;
   margin-bottom: 5px;
 }
 

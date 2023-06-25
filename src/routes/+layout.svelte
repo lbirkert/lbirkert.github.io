@@ -1,8 +1,9 @@
 <script>
   // Display font
-  import "@fontsource/abril-fatface";
+  import "@fontsource/bebas-neue";
   // Primary font
-  import "@fontsource/quicksand";
+  import "@fontsource/inter";
+  import "@fontsource/inter/latin-900.css";
 
   // Import app-wide stylesheet
   import "../app.css";

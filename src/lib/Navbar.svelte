@@ -1,9 +1,17 @@
-<nav>
+<script>
+  import Logo from "./Logo.svelte";
+
+  let scrollY = 0;
+</script>
+
+<svelte:window bind:scrollY />
+
+<nav class:detach={scrollY > 0}>
   <div>
-    <a href="/"><img src="logo.svg" alt="Logo" /></a>
+    <a href="/"><Logo /></a>
     <ul aria-label="links">
       <li>
-        <a href="/contact">Projects</a>
+        <a href="/#projects">Projects</a>
       </li>
       <li>
         <a href="/projects">Contact</a>
@@ -18,8 +26,14 @@
     position: sticky;
     top: 0;
     left: 0;
-    background-color: var(--brand-background);
     z-index: 100;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--brand-background);
+  }
+
+  nav.detach {
+    background-color: var(--brand-background-secondary);
+    box-shadow: 5px 5px 50px 5px rgba(0, 0, 0, 0.2);
   }
 
   nav div {
@@ -44,7 +58,7 @@
     text-decoration: none;
   }
 
-  nav img {
+  nav :global(svg) {
     width: 32px;
     height: 32px;
   }
