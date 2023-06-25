@@ -19,14 +19,18 @@
     <img
       src={urls.small || urls.medium || urls.large}
       srcset="
-      {urls.small ? urls.small + ' 375w,' : ''}
-      {urls.medium ? urls.medium + ' 960w,' : ''}
-      {urls.large ? urls.large + ' 1920w,' : ''}
+      {urls.small
+        ? urls.small + ' 375w' + (urls.medium || urls.large ? ',' : '')
+        : ''}
+      {urls.medium ? urls.medium + ' 960w' + (urls.large ? ',' : '') : ''}
+      {urls.large ? urls.large + ' 1920w' : ''}
       "
       sizes="
-      {urls.small ? '(max-width: 600px) 375px,' : ''}
-      {urls.medium ? '(max-width: 1500px) 960px,' : ''}
-      {urls.large ? '1920px,' : ''}
+      {urls.small
+        ? '(max-width: 600px) 375px' + (urls.medium || urls.large ? ',' : '')
+        : ''}
+      {urls.medium ? '(max-width: 1500px) 960px' + (urls.large ? ',' : '') : ''}
+      {urls.large ? '1920px' : ''}
     "
       {alt}
     />
