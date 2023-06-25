@@ -7,7 +7,7 @@
 <nav class:detach={scrollY > 0}>
   <div>
     <!--TODO: logo from hero to navbar-->
-    <a href="/"><img src="lucas_32.png" alt="Logo" /></a>
+    <a href="/"><img src="/lucas_32.png" alt="Logo" /></a>
     <ul aria-label="links">
       <li>
         <a href="/#projects">Projects</a>

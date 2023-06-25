@@ -1,20 +1,21 @@
 <script>
+    import { browser } from "$app/environment";
     import Page from "$lib/Page.svelte";
-    import { onDestroy, onMount } from "svelte";
+    import { onMount } from "svelte";
 
-    let show = false;
-    onMount(() => (show = true));
+    let mount = false;
+    onMount(() => (mount = browser && true));
 </script>
 
 <svelte:head>
     <title>Lucas Birkert</title>
 </svelte:head>
 
-<hero>
+<hero class:mount>
     <div>
-        <h1 class:show>Lucas Birkert</h1>
+        <h1>Lucas Birkert</h1>
 
-        <p class:show>Web Developement & Design</p>
+        <p>Web Developement & Design</p>
 
         <br />
 
@@ -74,25 +75,31 @@
 </div>
 
 <style>
-    .show {
-        transform: none;
-        opacity: 1;
+    @keyframes title {
+        to {
+            opacity: 1;
+            transform: none;
+        }
     }
 
-    hero h1 + p,
-    hero h1 {
+    hero h1,
+    hero h1 + p {
         opacity: 0;
         transform: translateY(-6px);
-        transition: 0.3s all ease;
     }
 
-    hero h1 + p {
-        transition-delay: 0.1s;
+    hero.mount h1,
+    hero.mount h1 + p {
+        animation: 0.3s title ease forwards;
+    }
+
+    hero.mount h1 + p {
+        animation-delay: 0.1s;
     }
 
     @media (prefers-reduced-motion) {
         * {
-            transition: none;
+            animation: none;
         }
     }
 

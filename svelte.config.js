@@ -1,4 +1,4 @@
-import adapter from "@bun-community/sveltekit-adapter-bun";
+import adapter from "@sveltejs/adapter-static";
 import preprocess from "svelte-preprocess";
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -8,9 +8,7 @@ const config = {
   preprocess: preprocess(),
 
   kit: {
-    adapter: adapter({
-      dynamic_origin: true,
-    }),
+    adapter: adapter({}),
   },
 };
 
