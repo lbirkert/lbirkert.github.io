@@ -1,11 +1,103 @@
-<script>
+<script lang="ts">
     import { browser } from "$app/environment";
     import Page from "$lib/Page.svelte";
     import { onMount } from "svelte";
+    import { spring } from "svelte/motion";
 
     let mount = false;
     onMount(() => (mount = browser && true));
+
+    let path =
+        "0,0 22.8354941,-31.58985 40.3040271,-35.83995 18.234713,-4.4365 35.818903,14.94595 54.556512,13.90226 21.351405,-1.18928 38.709505,-20.9064 60.023005,-22.64756 19.25633,-1.57311 56.83154,11.38871 56.83154,11.38871";
+
+    let start = [-1.6702741, 163.66963];
+
+    let points = path.split(" ").map((e) => e.split(",").map(parseFloat));
+    let curves = points.reduce(
+        (p, v) => (
+            p[p.length - 1].length < 3 ? p[p.length - 1].push(v) : p.push([v]),
+            p
+        ),
+        [[]] as number[][][]
+    );
+
+    let segments = curves.map((v, i) => {
+        const p0 = i === 0 ? start : curves[i - 1][2];
+        v[2][0] += p0[0];
+        v[2][1] += p0[1];
+        const p3 = v[2];
+        const p1 = [v[0][0] + p0[0], v[0][1] + p0[1]];
+        const p2 = [v[1][0] + p0[0], v[1][1] + p0[1]];
+
+        return [p0, p1, p2, p3];
+    }) as [number[], number[], number[], number[]][];
+
+    let lengths: number[] = [];
+
+    segments.forEach(([p0, p1, p2, p3], i) => {
+        lengths.push(
+            (Math.sqrt(
+                Math.pow(p3[0] - p0[0], 2) + Math.pow(p3[1] - p0[1], 2)
+            ) +
+                Math.sqrt(
+                    Math.pow(p0[0] - p1[0], 2) + Math.pow(p0[1] - p1[1], 2)
+                ) +
+                Math.sqrt(
+                    Math.pow(p1[0] - p2[0], 2) + Math.pow(p1[1] - p2[1], 2)
+                ) +
+                Math.sqrt(
+                    Math.pow(p2[0] - p3[0], 2) + Math.pow(p2[1] - p3[1], 2)
+                )) /
+                2 +
+                (lengths[i - 1] || 0)
+        );
+    });
+
+    let maxLength = lengths[lengths.length - 1];
+    lengths = lengths.map((e) => e / maxLength);
+
+    function interpolate(
+        p0: number[],
+        p1: number[],
+        p2: number[],
+        p3: number[],
+        t: number
+    ) {
+        const x =
+            Math.pow(1 - t, 3) * p0[0] +
+            3 * t * Math.pow(1 - t, 2) * p1[0] +
+            3 * Math.pow(t, 2) * (1 - t) * p2[0] +
+            Math.pow(t, 3) * p3[0];
+        const y =
+            Math.pow(1 - t, 3) * p0[1] +
+            3 * t * Math.pow(1 - t, 2) * p1[1] +
+            3 * Math.pow(t, 2) * (1 - t) * p2[1] +
+            Math.pow(t, 3) * p3[1];
+
+        return { x, y };
+    }
+
+    let scrollY = 0;
+    let scroll = spring(0, { damping: 1, stiffness: 0.1 });
+    $: scroll.set(scrollY / 400);
+
+    let circle = { x: 0, y: 0 };
+
+    $: {
+        const i = lengths.findIndex((p) => p >= $scroll);
+
+        if (i != -1) {
+            const minscroll = lengths[i - 1] || 0;
+            const maxscroll = lengths[i];
+
+            const t = ($scroll - minscroll) / (maxscroll - minscroll);
+
+            circle = interpolate(...segments[i], t);
+        }
+    }
 </script>
+
+<svelte:window bind:scrollY />
 
 <svelte:head>
     <title>Lucas Birkert</title>
@@ -36,6 +128,7 @@
             style="fill:var(--brand-background-secondary)"
             d="m -1.6702741,163.66963 c 0,0 22.8354941,-31.58985 40.3040271,-35.83995 18.234713,-4.4365 35.818903,14.94595 54.556512,13.90226 21.351405,-1.18928 38.709505,-20.9064 60.023005,-22.64756 19.25633,-1.57311 56.83154,11.38871 56.83154,11.38871 l 0.0349,31.91975 z"
         />
+        <circle cx={circle.x} cy={circle.y} r="5" fill="black" />
     </svg>
 
     <div id="projects" />
