@@ -1,4 +1,7 @@
-<div id="top" />
+<svelte:head>
+  <title>Lucas Birkert | Imprint</title>
+</svelte:head>
+
 <main>
   <h1>Impressum</h1>
 

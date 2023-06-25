@@ -6,6 +6,10 @@
     onMount(() => (show = true));
 </script>
 
+<svelte:head>
+    <title>Lucas Birkert</title>
+</svelte:head>
+
 <hero>
     <div>
         <h1 class:show>Lucas Birkert</h1>

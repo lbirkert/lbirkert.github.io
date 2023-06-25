@@ -1,6 +1,4 @@
 <script>
-  import Logo from "./Logo.svelte";
-
   let scrollY = 0;
 </script>
 
@@ -9,13 +7,13 @@
 <nav class:detach={scrollY > 0}>
   <div>
     <!--TODO: logo from hero to navbar-->
-    <a href="/"><Logo /></a>
+    <a href="/"><img src="lucas_32.png" alt="Logo" /></a>
     <ul aria-label="links">
       <li>
         <a href="/#projects">Projects</a>
       </li>
       <li>
-        <a href="/contact">Contact</a>
+        <a href="/contact#top">Contact</a>
       </li>
     </ul>
   </div>
@@ -64,8 +62,9 @@
     color: var(--brand-primary);
   }
 
-  nav :global(svg) {
+  nav img {
     width: 32px;
     height: 32px;
+    border-radius: 20px;
   }
 </style>

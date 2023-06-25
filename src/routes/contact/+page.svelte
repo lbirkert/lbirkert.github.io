@@ -14,6 +14,10 @@
   </ul>
 </main>
 
+<svelte:head>
+  <title>Lucas Birkert | Contact</title>
+</svelte:head>
+
 <svg
   viewBox="5 115 205 46"
   xmlns="http://www.w3.org/2000/svg"
