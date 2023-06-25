@@ -8,13 +8,14 @@
 
 <nav class:detach={scrollY > 0}>
   <div>
+    <!--TODO: logo from hero to navbar-->
     <a href="/"><Logo /></a>
     <ul aria-label="links">
       <li>
         <a href="/#projects">Projects</a>
       </li>
       <li>
-        <a href="/projects">Contact</a>
+        <a href="/contact">Contact</a>
       </li>
     </ul>
   </div>
@@ -33,7 +34,7 @@
 
   nav.detach {
     background-color: var(--brand-background-secondary);
-    box-shadow: 5px 5px 50px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 5px 5px 50px 5px rgba(0, 0, 0, 0.3);
   }
 
   nav div {
@@ -56,6 +57,11 @@
   nav a {
     color: var(--brand-secondary);
     text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  nav a:hover {
+    color: var(--brand-primary);
   }
 
   nav :global(svg) {

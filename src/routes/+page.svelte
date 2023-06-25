@@ -1,6 +1,6 @@
 <script>
     import Page from "$lib/Page.svelte";
-    import { onMount } from "svelte";
+    import { onDestroy, onMount } from "svelte";
 
     let show = false;
     onMount(() => (show = true));
@@ -14,7 +14,10 @@
 
         <br />
 
-        <p>I am a web and software developer focusing on simplicity.</p>
+        <p>
+            I am a web and software developer focusing on simplicity. I have got
+            more than 3 years of experience in the programming field.
+        </p>
     </div>
 </hero>
 
@@ -31,45 +34,42 @@
     </svg>
 
     <div id="projects" />
+    <div class="projects">
+        <ul>
+            <li>
+                <Page
+                    urls={{
+                        small: "screen_gpx_small.png",
+                        medium: "screen_gpx_medium.png",
+                    }}
+                    url="https://gamepowerx.com/"
+                />
+            </li>
 
-    <main>
-        <h1>Projects</h1>
-        <p>Some of the projects I have worked on include</p>
+            <li>
+                <Page
+                    urls={{
+                        small: "screen_kotw_small.png",
+                        medium: "screen_kotw_medium.png",
+                    }}
+                    url="https://kotw.dev/#about"
+                />
+            </li>
 
-        <br />
-        <br />
-
-        <h2>GamePowerX</h2>
-        <p>I designed the website for the GamePowerX group</p>
-
-        <br />
-
-        <Page
-            urls={{
-                small: "screen_gpx_small.png",
-                medium: "screen_gpx_medium.png",
-            }}
-            url="https://gamepowerx.com/"
-        />
-
-        <Page
-            urls={{
-                small: "screen_kotw_small.png",
-                medium: "screen_kotw_medium.png",
-            }}
-            url="https://kotw.dev/#about"
-        />
-
-        <br />
-    </main>
+            <li>
+                <Page
+                    urls={{
+                        small: "screen_palaten_small.png",
+                        medium: "screen_palaten_medium.png",
+                    }}
+                    url="https://www.palaten.de/"
+                />
+            </li>
+        </ul>
+    </div>
 </div>
 
 <style>
-    #projects {
-        position: absolute;
-        transform: translateY(-30px);
-    }
-
     .show {
         transform: none;
         opacity: 1;
@@ -93,7 +93,6 @@
     }
 
     hero {
-        display: block;
         padding: 60px 0;
         width: 90%;
         max-width: 600px;
@@ -109,26 +108,30 @@
         position: absolute;
     }
 
-    main {
-        width: 90%;
-        max-width: 600px;
-        margin: auto;
-        padding-top: 50px;
-    }
-
-    main h1,
-    h2 {
-        color: var(--brand-on-secondary-primary);
-    }
-
-    main p {
-        color: var(--brand-on-secondary-secondary);
-    }
-
     .content {
         display: flex;
         flex-direction: column;
         background-color: var(--brand-background-secondary);
         margin-top: 20vw;
+    }
+
+    .projects ul {
+        padding: calc(2.5vw + 25px) 15px;
+        overflow-x: scroll;
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 20px;
+        row-gap: 20px;
+        list-style: none;
+        justify-content: center;
+    }
+
+    .projects li {
+        width: 600px;
+    }
+
+    #projects {
+        position: absolute;
+        transform: translateY(-60px);
     }
 </style>

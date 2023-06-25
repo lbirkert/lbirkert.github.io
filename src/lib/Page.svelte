@@ -12,7 +12,7 @@
 
 <page>
   <header>
-    <p class="url">{url}</p>
+    <a class="url" href={url}>{url}</a>
   </header>
 
   <main>
@@ -49,7 +49,7 @@
   }
 
   img {
-    max-width: 100%;
+    width: 100%;
     pointer-events: none;
   }
 
@@ -61,10 +61,19 @@
   }
 
   header .url {
+    display: block;
+    color: var(--brand-secondary);
+    cursor: pointer;
+    text-decoration: none;
     background-color: var(--brand-background);
     padding: 5px 10px;
     border-radius: 10px;
     max-width: 400px;
     margin: auto;
+  }
+
+  header .url:hover {
+    text-decoration: underline;
+    color: var(--brand-primary);
   }
 </style>

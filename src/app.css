@@ -1,5 +1,4 @@
 :root {
-  --brand-background: #141419;
   --brand-background: #1e1f26;
   --brand-primary: #ddd;
   --brand-secondary: #888;
@@ -7,9 +6,9 @@
   --brand-on-secondary-primary: #ddd;
   --brand-on-secondary-secondary: #888;
 
-  --brand-background-secondary: #a3a6cc;
-  --brand-background-secondary: #1e1f26;
   --brand-background-secondary: #141419;
+
+  --brand-accent: #a3a6cc;
 }
 
 html {
@@ -35,4 +34,9 @@ h1, h2, h3, h4, h5, h6 {
 
 p {
   color: var(--brand-secondary);
+  line-height: 1.4em;
+}
+
+a {
+  color: var(--brand-accent);
 }
