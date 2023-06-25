@@ -2,7 +2,8 @@
     import { browser } from "$app/environment";
     import Page from "$lib/Page.svelte";
     import { onMount } from "svelte";
-    import { spring } from "svelte/motion";
+    import { tweened } from "svelte/motion";
+    import { cubicOut } from "svelte/easing";
 
     let mount = false;
     onMount(() => (mount = browser && true));
@@ -78,7 +79,7 @@
     }
 
     let scrollY = 0;
-    let scroll = spring(0, { damping: 1, stiffness: 0.1 });
+    let scroll = tweened(0, { duration: 400, easing: cubicOut });
     $: scroll.set(scrollY / 400);
 
     let circle = { x: 0, y: 0 };
