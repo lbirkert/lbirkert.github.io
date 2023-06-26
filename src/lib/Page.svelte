@@ -45,14 +45,14 @@
     width: 100%;
     pointer-events: none;
     border-radius: 0 0 10px 10px;
-    aspect-ratio: 800 / 650;
     opacity: 0;
+    display: flex;
   }
 
   img {
     width: 100%;
-    height: 100%;
     border-radius: 0 0 10px 10px;
+    aspect-ratio: 800 / 650;
   }
 
   page.mount picture {
