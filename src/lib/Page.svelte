@@ -1,12 +1,8 @@
 <script lang="ts">
-  export let urls: { small?: string; medium?: string; large?: string } = {
-    small: "screen_gpx_small.png",
-    medium: "screen_gpx_medium.png",
-    large: "screen_gpx_large.png",
-  };
+  import { browser } from "$app/environment";
+  import mobile from "is-mobile";
 
-  export let alt: string = "GamePowerX";
-
+  export let preview: string = "gpx";
   export let url: string = "https://gamepowerx.com";
 </script>
 
@@ -15,26 +11,10 @@
     <a class="url" href={url}>{url}</a>
   </header>
 
-  <main>
-    <img
-      src={urls.small || urls.medium || urls.large}
-      srcset="
-      {urls.small
-        ? urls.small + ' 375w' + (urls.medium || urls.large ? ',' : '')
-        : ''}
-      {urls.medium ? urls.medium + ' 960w' + (urls.large ? ',' : '') : ''}
-      {urls.large ? urls.large + ' 1920w' : ''}
-      "
-      sizes="
-      {urls.small
-        ? '(max-width: 600px) 375px' + (urls.medium || urls.large ? ',' : '')
-        : ''}
-      {urls.medium ? '(max-width: 1500px) 960px' + (urls.large ? ',' : '') : ''}
-      {urls.large ? '1920px' : ''}
-    "
-      {alt}
-    />
-  </main>
+  <img
+    src="screen_{preview}_{browser && mobile() ? 'mobile' : 'desktop'}.webp"
+    alt="Preview for {preview}"
+  />
 </page>
 
 <style>
@@ -46,15 +26,10 @@
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
-  main {
-    max-height: 500px;
-    overflow-y: scroll;
-    border-radius: 0 0 10px 10px;
-  }
-
   img {
     width: 100%;
     pointer-events: none;
+    border-radius: 0 0 10px 10px;
   }
 
   header {

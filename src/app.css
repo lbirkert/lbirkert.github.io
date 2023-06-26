@@ -43,3 +43,10 @@ p {
 a {
   color: var(--brand-accent);
 }
+
+@media (prefers-reduced-motion) {
+    * {
+        animation: none;
+        transition: none;
+    }
+}

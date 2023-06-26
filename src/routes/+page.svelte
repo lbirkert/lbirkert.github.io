@@ -4,6 +4,13 @@
     import { onMount } from "svelte";
     import { tweened } from "svelte/motion";
     import { cubicOut } from "svelte/easing";
+    import Fa from "svelte-fa";
+    import {
+        faDiscord,
+        faGithub,
+        faGitlab,
+    } from "@fortawesome/free-brands-svg-icons";
+    import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
     let mount = false;
     onMount(() => (mount = browser && true));
@@ -79,26 +86,28 @@
     }
 
     let scrollY = 0;
+    let innerWidth = 0;
+
     let scroll = tweened(0, { duration: 400, easing: cubicOut });
-    $: scroll.set(scrollY / 400);
+    $: scroll.set(scrollY / (innerWidth * 0.25 + 300));
 
-    let circle = { x: 0, y: 0 };
+    $: circle_r = 1000 / innerWidth;
 
-    $: {
-        const i = lengths.findIndex((p) => p >= $scroll);
+    function circle(scroll: number) {
+        if (scroll < 0 || scroll > 1) return { x: 0, y: 0 };
 
-        if (i != -1) {
-            const minscroll = lengths[i - 1] || 0;
-            const maxscroll = lengths[i];
+        const i = lengths.findIndex((p) => p >= scroll);
 
-            const t = ($scroll - minscroll) / (maxscroll - minscroll);
+        const minscroll = lengths[i - 1] || 0;
+        const maxscroll = lengths[i];
 
-            circle = interpolate(...segments[i], t);
-        }
+        const t = (scroll - minscroll) / (maxscroll - minscroll);
+
+        return interpolate(...segments[i], t);
     }
 </script>
 
-<svelte:window bind:scrollY />
+<svelte:window bind:scrollY bind:innerWidth />
 
 <svelte:head>
     <title>Lucas Birkert</title>
@@ -116,6 +125,31 @@
             I am a web and software developer focusing on simplicity. I have got
             more than 3 years of experience in the programming field.
         </p>
+
+        <br />
+
+        <ul class="links">
+            <li>
+                <a href="https://discord.gg/Cq2UpzeTnm" aria-label="Discord">
+                    <Fa icon={faDiscord} />
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/KekOnTheWorld" aria-label="Github">
+                    <Fa icon={faGithub} />
+                </a>
+            </li>
+            <li>
+                <a href="https://gitlab.com/KekOnTheWorld" aria-label="Gitlab">
+                    <Fa icon={faGitlab} />
+                </a>
+            </li>
+            <li>
+                <a href="mailto:lucasbirkert@gmail.com" aria-label="Email">
+                    <Fa icon={faEnvelope} />
+                </a>
+            </li>
+        </ul>
     </div>
 </hero>
 
@@ -129,40 +163,31 @@
             style="fill:var(--brand-background-secondary)"
             d="m -1.6702741,163.66963 c 0,0 22.8354941,-31.58985 40.3040271,-35.83995 18.234713,-4.4365 35.818903,14.94595 54.556512,13.90226 21.351405,-1.18928 38.709505,-20.9064 60.023005,-22.64756 19.25633,-1.57311 56.83154,11.38871 56.83154,11.38871 l 0.0349,31.91975 z"
         />
-        <circle cx={circle.x} cy={circle.y} r="5" fill="black" />
+
+        {#each new Array(10) as _, i}
+            {@const c = circle($scroll - i * 0.09)}
+            <circle
+                cx={c.x}
+                cy={c.y - circle_r}
+                r={circle_r}
+                style="fill:var(--brand-accent)"
+            />
+        {/each}
     </svg>
 
     <div id="projects" />
     <div class="projects">
         <ul>
             <li>
-                <Page
-                    urls={{
-                        small: "screen_gpx_small.png",
-                        medium: "screen_gpx_medium.png",
-                    }}
-                    url="https://gamepowerx.com/"
-                />
+                <Page preview="gpx" url="https://gamepowerx.com/" />
             </li>
 
             <li>
-                <Page
-                    urls={{
-                        small: "screen_kotw_small.png",
-                        medium: "screen_kotw_medium.png",
-                    }}
-                    url="https://kotw.dev/#about"
-                />
+                <Page preview="kotw" url="https://kotw.dev/#about" />
             </li>
 
             <li>
-                <Page
-                    urls={{
-                        small: "screen_palaten_small.png",
-                        medium: "screen_palaten_medium.png",
-                    }}
-                    url="https://www.palaten.de/"
-                />
+                <Page preview="palaten" url="https://www.palaten.de/" />
             </li>
         </ul>
     </div>
@@ -191,10 +216,19 @@
         animation-delay: 0.1s;
     }
 
-    @media (prefers-reduced-motion) {
-        * {
-            animation: none;
-        }
+    hero .links {
+        list-style: none;
+        display: flex;
+        column-gap: 20px;
+    }
+
+    hero .links a {
+        transition: color 0.3s ease;
+        font-size: 25px;
+    }
+
+    hero .links a:hover {
+        color: var(--brand-primary);
     }
 
     hero {
