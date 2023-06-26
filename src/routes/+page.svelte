@@ -272,7 +272,13 @@
     }
 
     .projects li {
-        width: 600px;
+        max-width: 750px;
+    }
+
+    @media (min-width: 1500px) {
+        .projects li {
+            width: 600px;
+        }
     }
 
     #projects {
