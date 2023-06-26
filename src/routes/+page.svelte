@@ -272,6 +272,7 @@
     }
 
     .projects li {
+        width: 100%;
         max-width: 750px;
     }
 

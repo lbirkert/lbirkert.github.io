@@ -19,7 +19,17 @@
     </a>
   </header>
 
-  <img src="screen_{preview}_desktop.webp" alt="Preview for {preview}" />
+  <picture>
+    <source
+      media="(min-resolution: 2x)"
+      srcset="screen_{preview}_desktop_3x.webp"
+    />
+    <source
+      media="(min-resolution: 1x)"
+      srcset="screen_{preview}_desktop_2x.webp"
+    />
+    <img src="screen_{preview}_desktop_1x.webp" alt="Preview for {preview}" />
+  </picture>
 </page>
 
 <style>
