@@ -1,20 +1,25 @@
 <script lang="ts">
-  import { browser } from "$app/environment";
-  import mobile from "is-mobile";
+  import Fa from "svelte-fa";
+  import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
+
+  import { onMount } from "svelte";
 
   export let preview: string = "gpx";
   export let url: string = "https://gamepowerx.com";
+
+  let mount = false;
+  onMount(() => (mount = true));
 </script>
 
-<page>
+<page class:mount>
   <header>
-    <a class="url" href={url}>{url}</a>
+    <a class="url" href={url}>
+      {url}
+      <Fa icon={faArrowUpRightFromSquare} />
+    </a>
   </header>
 
-  <img
-    src="screen_{preview}_{browser && mobile() ? 'mobile' : 'desktop'}.webp"
-    alt="Preview for {preview}"
-  />
+  <img src="screen_{preview}_desktop.webp" alt="Preview for {preview}" />
 </page>
 
 <style>
@@ -30,9 +35,22 @@
     width: 100%;
     pointer-events: none;
     border-radius: 0 0 10px 10px;
+    aspect-ratio: 800 / 650;
+    opacity: 0;
+  }
+
+  page.mount img {
+    animation: fadein 0.3s ease forwards;
+  }
+
+  @keyframes fadein {
+    to {
+      opacity: 1;
+    }
   }
 
   header {
+    position: relative;
     background-color: var(--brand-background-secondary);
     border-radius: 10px 10px 0 0;
     padding: 10px 20px;
@@ -40,7 +58,8 @@
   }
 
   header .url {
-    display: block;
+    display: flex;
+    justify-content: space-between;
     color: var(--brand-secondary);
     cursor: pointer;
     text-decoration: none;
@@ -49,10 +68,33 @@
     border-radius: 10px;
     max-width: 400px;
     margin: auto;
+    transition: color 0.3s ease;
   }
 
   header .url:hover {
     text-decoration: underline;
     color: var(--brand-primary);
+  }
+
+  header::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0%;
+    background-color: var(--brand-accent);
+    animation: loading-bar 0.6s ease forwards;
+  }
+
+  @keyframes loading-bar {
+    to {
+      width: 100%;
+    }
+  }
+
+  page.mount header::after {
+    display: none;
   }
 </style>

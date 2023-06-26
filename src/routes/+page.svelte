@@ -119,12 +119,11 @@
         <h1>Lucas Birkert</h1>
 
         <p>Web Developement & Design</p>
-
         <br />
 
-        <p>
-            I am a web and software developer focusing on simplicity. I have got
-            more than 3 years of experience in the programming field.
+        <p class="short">
+            Hey, my name is Lucas and I am an experienced software and
+            webdeveloper from germany.
         </p>
 
         <br />
@@ -202,6 +201,10 @@
             opacity: 1;
             transform: none;
         }
+    }
+
+    .short {
+        max-width: 400px;
     }
 
     hero h1,
