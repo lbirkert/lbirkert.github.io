@@ -122,8 +122,8 @@
         <br />
 
         <p class="short">
-            Hey, my name is Lucas and I am an experienced software and
-            webdeveloper from germany.
+            Hey, my name is Lucas and I am an experienced software and web
+            developer from germany.
         </p>
 
         <br />
