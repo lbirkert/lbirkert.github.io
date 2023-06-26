@@ -135,7 +135,7 @@
                 </a>
             </li>
             <li>
-                <a href="https://github.com/KekOnTheWorld" aria-label="Github">
+                <a href="https://github.com/lbirkert" aria-label="Github">
                     <Fa icon={faGithub} />
                 </a>
             </li>
