@@ -240,7 +240,7 @@
     hero {
         padding: 60px 0;
         width: 90%;
-        max-width: 600px;
+        max-width: 750px;
         margin: auto;
         display: flex;
         column-gap: 30px;

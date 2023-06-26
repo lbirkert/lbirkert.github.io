@@ -38,7 +38,7 @@
   nav div {
     display: flex;
     width: 90%;
-    max-width: 600px;
+    max-width: 750px;
     margin: auto;
     padding: 10px 0;
   }

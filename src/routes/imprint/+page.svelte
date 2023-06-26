@@ -136,7 +136,7 @@
   main {
     padding-top: 60px;
     padding-bottom: 60px;
-    max-width: 600px;
+    max-width: 750px;
     width: 90%;
     margin: auto;
   }
