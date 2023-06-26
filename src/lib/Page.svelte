@@ -41,7 +41,7 @@
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
-  img {
+  picture {
     width: 100%;
     pointer-events: none;
     border-radius: 0 0 10px 10px;
@@ -49,7 +49,13 @@
     opacity: 0;
   }
 
-  page.mount img {
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 0 0 10px 10px;
+  }
+
+  page.mount picture {
     animation: fadein 0.3s ease forwards;
   }
 
