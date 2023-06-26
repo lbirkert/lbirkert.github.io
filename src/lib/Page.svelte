@@ -21,11 +21,11 @@
 
   <picture>
     <source
-      media="(min-resolution: 2x)"
+      media="(min-resolution: 2.12x)"
       srcset="screen_{preview}_desktop_3x.webp"
     />
     <source
-      media="(min-resolution: 1x)"
+      media="(min-resolution: 1.06x)"
       srcset="screen_{preview}_desktop_2x.webp"
     />
     <img src="screen_{preview}_desktop_1x.webp" alt="Preview for {preview}" />
