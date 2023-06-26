@@ -92,6 +92,7 @@
     $: scroll.set(scrollY / (innerWidth * 0.25 + 300));
 
     $: circle_r = 1000 / innerWidth;
+    $: circles = Math.floor(innerWidth / 100);
 
     function circle(scroll: number) {
         if (scroll < 0 || scroll > 1) return { x: 0, y: 0 };
@@ -164,15 +165,17 @@
             d="m -1.6702741,163.66963 c 0,0 22.8354941,-31.58985 40.3040271,-35.83995 18.234713,-4.4365 35.818903,14.94595 54.556512,13.90226 21.351405,-1.18928 38.709505,-20.9064 60.023005,-22.64756 19.25633,-1.57311 56.83154,11.38871 56.83154,11.38871 l 0.0349,31.91975 z"
         />
 
-        {#each new Array(10) as _, i}
-            {@const c = circle($scroll - i * 0.09)}
-            <circle
-                cx={c.x}
-                cy={c.y - circle_r}
-                r={circle_r}
-                style="fill:var(--brand-accent)"
-            />
-        {/each}
+        {#if $scroll <= 1}
+            {#each new Array(circles) as _, i}
+                {@const c = circle($scroll - i * (1.0 / circles))}
+                <circle
+                    cx={c.x}
+                    cy={c.y - circle_r}
+                    r={circle_r}
+                    style="fill:var(--brand-accent)"
+                />
+            {/each}
+        {/if}
     </svg>
 
     <div id="projects" />
