@@ -4,14 +4,16 @@
 
   import { onMount } from "svelte";
 
-  export let preview: string = "gpx";
-  export let url: string = "https://gamepowerx.com";
+  export let preview: string;
+  export let url: string;
 
   let mount = false;
   onMount(() => (mount = true));
+
+  let showDescription = false;
 </script>
 
-<page class:mount>
+<page class:mount on:mouseleave={() => (showDescription = false)}>
   <header>
     <a class="url" href={url}>
       {url}
@@ -22,13 +24,21 @@
   <picture>
     <source
       media="(min-resolution: 2.12x)"
-      srcset="screen_{preview}_desktop_3x.webp"
+      srcset="project/{preview}_3x.webp"
     />
     <source
       media="(min-resolution: 1.06x)"
-      srcset="screen_{preview}_desktop_2x.webp"
+      srcset="project/{preview}_2x.webp"
     />
-    <img src="screen_{preview}_desktop_1x.webp" alt="Preview for {preview}" />
+    <img src="project/{preview}_1x.webp" alt="Preview for {preview}" />
+
+    <button on:click={() => (showDescription = !showDescription)}
+      >Show description</button
+    >
+
+    <main class:show={showDescription}>
+      <slot>No description</slot>
+    </main>
   </picture>
 </page>
 
@@ -37,19 +47,21 @@
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 25px 10px rgba(0, 0, 0, 0.4);
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   picture {
     width: 100%;
-    pointer-events: none;
     border-radius: 0 0 10px 10px;
     opacity: 0;
     display: flex;
+    position: relative;
+    overflow: hidden;
   }
 
   img {
+    pointer-events: none;
     width: 100%;
     border-radius: 0 0 10px 10px;
     aspect-ratio: 800 / 650;
@@ -112,5 +124,36 @@
 
   page.mount header::after {
     display: none;
+  }
+
+  main {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    margin: 10px;
+    transform: translateY(calc(10px + 100%));
+    background: var(--brand-background-secondary);
+    border-radius: 10px;
+    padding: 10px 15px;
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(100, 100, 100, 0.3);
+    max-width: 400px;
+  }
+
+  page:hover main,
+  main.show {
+    transform: none;
+    transition: transform 0.3s ease;
+    animation: 0.3s ease description forwards;
+  }
+
+  picture button {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    cursor: pointer;
   }
 </style>

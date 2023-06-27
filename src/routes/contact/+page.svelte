@@ -3,7 +3,7 @@
     <h1>Contact</h1>
 
     <p>
-      Please consider contacting me via <a href="lucas.birkert@gmail.com"
+      Please consider contacting me via <a href="mailto:lucas.birkert@gmail.com"
         >email</a
       > only
     </p>

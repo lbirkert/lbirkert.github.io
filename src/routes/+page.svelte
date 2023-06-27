@@ -1,6 +1,6 @@
 <script lang="ts">
     import { browser } from "$app/environment";
-    import Page from "$lib/Page.svelte";
+    import Project from "$lib/Project.svelte";
     import { onMount } from "svelte";
     import { tweened } from "svelte/motion";
     import { cubicOut } from "svelte/easing";
@@ -181,15 +181,30 @@
     <div class="projects">
         <ul>
             <li>
-                <Page preview="gpx" url="https://gamepowerx.com/" />
+                <Project preview="gamepowerx" url="https://gamepowerx.com/">
+                    GamePowerX is a github organisation focusing on Opensource
+                    software for everyone. This site was written in SvelteKit.
+                </Project>
             </li>
 
             <li>
-                <Page preview="kotw" url="https://kotw.dev/#about" />
+                <Project preview="kotw" url="https://kotw.dev/#about">
+                    This was my old portofolio.
+                </Project>
             </li>
 
             <li>
-                <Page preview="palaten" url="https://www.palaten.de/" />
+                <Project preview="palaten" url="https://www.palaten.de/">
+                    Palaten Studios is an IT and Game development company which
+                    focuses on reliable Software.
+                </Project>
+            </li>
+
+            <li>
+                <Project preview="kekupload" url="https://u.gamepowerx.com/">
+                    KekUpload is an HTTP application for uploading files written
+                    in rust and SvelteKit.
+                </Project>
             </li>
         </ul>
     </div>
@@ -265,8 +280,8 @@
         overflow-x: scroll;
         display: flex;
         flex-wrap: wrap;
-        column-gap: 20px;
-        row-gap: 20px;
+        column-gap: 50px;
+        row-gap: 50px;
         list-style: none;
         justify-content: center;
     }

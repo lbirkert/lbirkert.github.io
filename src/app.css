@@ -1,10 +1,10 @@
 :root {
   --brand-background: #1e1f26;
   --brand-primary: #ddd;
-  --brand-secondary: #888;
+  --brand-secondary: #999;
 
   --brand-on-secondary-primary: #ddd;
-  --brand-on-secondary-secondary: #888;
+  --brand-on-secondary-secondary: #999;
 
   --brand-background-secondary: #141419;
 
