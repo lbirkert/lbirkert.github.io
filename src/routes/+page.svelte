@@ -140,7 +140,7 @@
                 </a>
             </li>
             <li>
-                <a href="https://gitlab.com/KekOnTheWorld" aria-label="Gitlab">
+                <a href="https://gitlab.com/lbirkert" aria-label="Gitlab">
                     <Fa icon={faGitlab} />
                 </a>
             </li>
