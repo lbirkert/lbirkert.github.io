@@ -1,4 +1,6 @@
-# lbirkert.com
+# <a href="https://lbirkert.com">lbirkert.com</a>
+
+[![Publish to github pages](https://github.com/lbirkert/lbirkert.github.io/actions/workflows/publish.yml/badge.svg)](https://github.com/lbirkert/lbirkert.github.io/actions/workflows/publish.yml)
 
 <br>
 
