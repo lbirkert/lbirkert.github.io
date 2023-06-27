@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg width="128" height="128" version="1.1" viewBox="0 0 33.867 33.867" xmlns="http://www.w3.org/2000/svg">
+ <g transform="translate(5.2917)">
+  <g transform="translate(7.0115 3.0427)">
+   <rect x="-12.303" y="-3.0427" width="33.867" height="33.867" rx="7.9375" ry="7.9375" fill="#1e1f26" stroke-width=".39688"/>
+   <g transform="matrix(.8 0 0 .8 .92604 2.7781)" fill="#fff">
+    <g transform="translate(1.3229)">
+     <rect width="13.229" height="14.552" rx="4.7625" ry="4.7625"/>
+     <rect y="13.229" width="13.229" height="14.552" rx="4.7625" ry="4.7625"/>
+     <rect x="-3.5527e-15" y="-4.4409e-16" width="4.7625" height="27.781"/>
+    </g>
+    <rect transform="translate(-5.2917)" y="-4.4409e-16" width="3.9688" height="27.781"/>
+    <rect x="-2.6458" width="1.3229" height="27.781"/>
+   </g>
+  </g>
+ </g>
+</svg>
