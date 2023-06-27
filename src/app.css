@@ -32,7 +32,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   color: var(--brand-primary);
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 }
 
 p {
@@ -49,4 +49,8 @@ a {
         animation: none;
         transition: none;
     }
+}
+
+ul {
+  color: var(--brand-secondary);
 }

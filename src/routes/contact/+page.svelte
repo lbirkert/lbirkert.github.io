@@ -1,17 +1,43 @@
 <main>
-  <h1>Contact</h1>
-  <p>You may reach out to me at the following providers</p>
+  <div>
+    <h1>Contact</h1>
 
-  <br />
+    <p>
+      Please consider contacting me via <a href="lucas.birkert@gmail.com"
+        >email</a
+      > only
+    </p>
 
-  <ul>
-    <li>
-      <a href="https://discord.gg/Cq2UpzeTnm">Discord Server</a>
-    </li>
-    <li>
-      <a href="mailto:lucasbirkert@gmail.com">lucasbirkert@gmail.com</a>
-    </li>
-  </ul>
+    <br />
+
+    <ul>
+      <li>to talk about freelancing work</li>
+      <li>to propose a job offer</li>
+      <li>to report copyright enfirghtements</li>
+      <li>to discuss legal issues with this site</li>
+    </ul>
+
+    <br />
+
+    <p>
+      You may also join my <a href="https://discord.gg/Cq2UpzeTnm"
+        >Discord Server</a
+      >.
+    </p>
+
+    <br />
+    <br />
+  </div>
+
+  <iframe
+    title="Discord Widget"
+    src="https://discord.com/widget?id=874319461988069387&theme=dark"
+    width="350"
+    height="500"
+    allowtransparency={true}
+    frameborder="0"
+    sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+  />
 </main>
 
 <svelte:head>
@@ -36,9 +62,30 @@
     max-width: 750px;
     width: 90%;
     margin: auto;
+    display: flex;
+    column-gap: 30px;
   }
 
   ul {
-    list-style: none;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+  }
+
+  iframe {
+    margin-left: auto;
+    border: 1px solid rgba(100, 100, 100, 0.3);
+    border-radius: 6px;
+  }
+
+  @media (max-width: 800px) {
+    main {
+      flex-direction: column;
+    }
+
+    iframe {
+      width: 100%;
+    }
   }
 </style>
