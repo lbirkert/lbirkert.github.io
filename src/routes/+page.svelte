@@ -253,13 +253,19 @@
     }
 
     hero {
-        padding: 60px 0;
+        padding: 80px 0;
         width: 90%;
         max-width: 750px;
         margin: auto;
         display: flex;
         column-gap: 30px;
         row-gap: 40px;
+    }
+
+    @media (max-width: 550px) {
+        hero {
+            padding: 60px 0;
+        }
     }
 
     .content svg {

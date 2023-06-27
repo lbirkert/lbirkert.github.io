@@ -134,10 +134,15 @@
 
 <style>
   main {
-    padding-top: 60px;
-    padding-bottom: 60px;
+    padding: 80px 0;
     max-width: 750px;
     width: 90%;
     margin: auto;
+  }
+
+  @media (max-width: 550px) {
+    main {
+      padding: 60px 0;
+    }
   }
 </style>
