@@ -27,6 +27,10 @@ html {
 
 body {
   background-color: var(--brand-background);
+  background-image: url(/background.svg);
+  background-size: 64px;
+  background-position: 50%, 50%;
+  background-origin: content-box;
   font-family: 'Inter', sans-serif;
 }
 

@@ -82,6 +82,7 @@
     margin-left: auto;
     border: 1px solid rgba(100, 100, 100, 0.3);
     border-radius: 6px;
+    background-color: var(--brand-background-secondary);
   }
 
   @media (max-width: 800px) {

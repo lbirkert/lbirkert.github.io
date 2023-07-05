@@ -118,10 +118,10 @@
     <div>
         <h1>Lucas Birkert</h1>
 
-        <p>Web Developement & Design</p>
+        <p style="--d:0.1s">Web Developement & Design</p>
         <br />
 
-        <p class="short">
+        <p class="short" style="--d:0.2s">
             Hey, my name is Lucas and I am an experienced software and web
             developer from germany.
         </p>
@@ -129,22 +129,22 @@
         <br />
 
         <ul class="links">
-            <li>
+            <li style="--d:0.2s">
                 <a href="https://discord.gg/Cq2UpzeTnm" aria-label="Discord">
                     <Fa icon={faDiscord} />
                 </a>
             </li>
-            <li>
+            <li style="--d:0.3s">
                 <a href="https://github.com/lbirkert" aria-label="Github">
                     <Fa icon={faGithub} />
                 </a>
             </li>
-            <li>
+            <li style="--d:0.4s">
                 <a href="https://gitlab.com/lbirkert" aria-label="Gitlab">
                     <Fa icon={faGitlab} />
                 </a>
             </li>
-            <li>
+            <li style="--d:0.5s">
                 <a href="mailto:lucasbirkert@gmail.com" aria-label="Email">
                     <Fa icon={faEnvelope} />
                 </a>
@@ -223,18 +223,18 @@
     }
 
     hero h1,
-    hero h1 + p {
+    hero p {
         opacity: 0;
-        transform: translateY(-6px);
+        transform: translateX(-20px);
     }
 
     hero.mount h1,
-    hero.mount h1 + p {
-        animation: 0.3s title ease forwards;
+    hero.mount p {
+        animation: 0.4s title ease forwards;
     }
 
-    hero.mount h1 + p {
-        animation-delay: 0.1s;
+    hero.mount p {
+        animation-delay: var(--d);
     }
 
     hero .links {
@@ -245,7 +245,17 @@
 
     hero .links a {
         transition: color 0.3s ease;
+    }
+
+    hero .links li {
         font-size: 25px;
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    hero.mount .links li {
+        animation: 0.4s title ease forwards;
+        animation-delay: var(--d);
     }
 
     hero .links a:hover {
