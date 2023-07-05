@@ -82,7 +82,7 @@
             3 * Math.pow(t, 2) * (1 - t) * p2[1] +
             Math.pow(t, 3) * p3[1];
 
-        return [x, y];
+        return { x, y };
     }
 
     let scrollY = 0;
@@ -94,20 +94,8 @@
     $: circle_r = 1000 / innerWidth;
     $: circles = Math.floor(innerWidth / 100);
 
-    $: circle_coords = new Array(circles).fill(0).map((_) => ({ x: 0, y: 0 }));
-
-    $: if (browser && $scroll >= 0 && $scroll <= 1)
-        requestAnimationFrame(animate);
-
-    function animate() {
-        circle_coords.forEach((c, i) => {
-            [c.x, c.y] = circle($scroll - i / circles);
-        });
-        circle_coords = circle_coords;
-    }
-
     function circle(scroll: number) {
-        if (scroll < 0 || scroll > 1) return [0, 0];
+        if (scroll < 0 || scroll > 1) return { x: 0, y: 0 };
 
         const i = lengths.findIndex((p) => p >= scroll);
 
@@ -177,7 +165,8 @@
         />
 
         {#if $scroll <= 1}
-            {#each circle_coords as c}
+            {#each new Array(circles) as _, i}
+                {@const c = circle($scroll - i * (1.0 / circles))}
                 <circle
                     cx={c.x}
                     cy={c.y - circle_r}
