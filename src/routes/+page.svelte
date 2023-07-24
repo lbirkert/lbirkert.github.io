@@ -118,7 +118,7 @@
     <div>
         <h1>Lucas Birkert</h1>
 
-        <p style="--d:0.1s">Web Developement & Design</p>
+        <p style="--d:0.1s">Web & Software Development</p>
         <br />
 
         <p class="short" style="--d:0.2s">
@@ -183,13 +183,14 @@
             <li>
                 <Project preview="gamepowerx" url="https://gamepowerx.com/">
                     GamePowerX is a github organisation focusing on Opensource
-                    software for everyone. This site was written in SvelteKit.
+                    software for everyone.
                 </Project>
             </li>
 
             <li>
                 <Project preview="kotw" url="https://kotw.dev/#about">
-                    This was my old portofolio.
+                    This was my old portofolio. It was soon after replaced by
+                    this one.
                 </Project>
             </li>
 
@@ -203,7 +204,7 @@
             <li>
                 <Project preview="kekupload" url="https://u.gamepowerx.com/">
                     KekUpload is an HTTP application for uploading files written
-                    in rust and SvelteKit.
+                    in rust and Svelte.
                 </Project>
             </li>
         </ul>
