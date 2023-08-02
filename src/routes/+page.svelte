@@ -82,7 +82,7 @@
     let innerWidth = 0;
 
     let scroll = tweened(0, { duration: 400, easing: cubicOut });
-    $: scroll.set(scrollY / (innerWidth * 0.25 + 300));
+    $: scroll.set(scrollY / (innerWidth * 0.2 + 450));
 
     $: circle_r = 1000 / innerWidth;
     $: circles = Math.floor(innerWidth / 100);
@@ -133,8 +133,8 @@
             d="m -1.6702741,163.66963 c 0,0 22.8354941,-31.58985 40.3040271,-35.83995 18.234713,-4.4365 35.818903,14.94595 54.556512,13.90226 21.351405,-1.18928 38.709505,-20.9064 60.023005,-22.64756 19.25633,-1.57311 56.83154,11.38871 56.83154,11.38871"
         />
 
-        {#if $scroll <= 1}
-            {#each new Array(circles) as _, i}
+        {#if $scroll <= 1 && innerWidth > 550}
+            {#each new Array(Math.min(10, circles)) as _, i}
                 {@const c = circle($scroll - i * (1.0 / circles))}
                 <circle
                     cx={c.x}
@@ -150,8 +150,18 @@
     <div class="projects">
         <ul>
             <li>
+                <Project
+                    preview="unicodeexplorer"
+                    url="https://lbirkert.com/UnicodeExplorer"
+                >
+                    Explore the magic of unicode. UnicodeExplorer is an almost
+                    infinite scroller for the unicode spectrum.
+                </Project>
+            </li>
+
+            <li>
                 <Project preview="gamepowerx" url="https://gamepowerx.com/">
-                    GamePowerX is a github organisation focusing on Opensource
+                    GamePowerX is a github organisation focusing on opensource
                     software for everyone.
                 </Project>
             </li>
@@ -165,7 +175,7 @@
 
             <li>
                 <Project preview="palaten" url="https://www.palaten.de/">
-                    Palaten Studios is an IT and Game development company which
+                    Palaten Studios is an IT and game development company, which
                     focuses on reliable Software.
                 </Project>
             </li>
@@ -173,7 +183,7 @@
             <li>
                 <Project preview="kekupload" url="https://u.gamepowerx.com/">
                     KekUpload is an HTTP application for uploading files written
-                    in rust and Svelte.
+                    in rust & svelte.
                 </Project>
             </li>
         </ul>
