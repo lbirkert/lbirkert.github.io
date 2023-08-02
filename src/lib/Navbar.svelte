@@ -64,7 +64,7 @@
     width: 90%;
     max-width: 850px;
     margin: auto;
-    padding: 10px 0;
+    padding: 15px 0;
   }
 
   nav ul {
@@ -76,7 +76,7 @@
     column-gap: 40px;
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 550px) {
     .logo h1 {
       display: none;
     }

@@ -303,12 +303,12 @@
 
     .projects li {
         width: 100%;
-        max-width: 750px;
+        max-width: 700px;
     }
 
     @media (min-width: 1500px) {
         .projects li {
-            width: 600px;
+            width: 800px;
         }
     }
 

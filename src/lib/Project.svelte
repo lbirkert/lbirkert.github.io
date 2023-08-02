@@ -44,16 +44,16 @@
 
 <style>
   page {
-    border-radius: 10px;
+    border-radius: 15px;
     display: flex;
     flex-direction: column;
     box-shadow: 0px 0px 25px 10px rgba(0, 0, 0, 0.4);
-    border: 1px solid #333;
+    border: 1px solid rgba(200, 200, 200, 0.08);
   }
 
   picture {
     width: 100%;
-    border-radius: 0 0 10px 10px;
+    border-radius: 0 0 15px 15px;
     opacity: 0;
     display: flex;
     position: relative;
@@ -63,7 +63,7 @@
   img {
     pointer-events: none;
     width: 100%;
-    border-radius: 0 0 10px 10px;
+    border-radius: 0 0 15px 15px;
     aspect-ratio: 800 / 650;
   }
 
@@ -80,9 +80,9 @@
   header {
     position: relative;
     background-color: var(--brand-background-secondary);
-    border-radius: 10px 10px 0 0;
-    padding: 10px 20px;
-    border-bottom: 1px solid #333;
+    border-radius: 15px 15px 0 0;
+    padding: 8px 20px;
+    border-bottom: 1px solid rgba(200, 200, 200, 0.08);
   }
 
   header .url {
@@ -97,6 +97,14 @@
     max-width: 400px;
     margin: auto;
     transition: color 0.3s ease;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 400px) {
+    header .url {
+      font-size: 13px;
+    }
   }
 
   header .url:hover {
