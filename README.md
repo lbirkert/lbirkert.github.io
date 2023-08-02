@@ -11,4 +11,4 @@ licensed under the MIT License and was built using SvelteKit.
 
 <hr>
 
-&copy; Lucas Birkert & Contributors
+[LICENSE](LICENSE) | &copy; [Lucas Birkert](https://lbirkert.com) 2023
