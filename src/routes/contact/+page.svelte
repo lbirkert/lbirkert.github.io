@@ -62,7 +62,7 @@
 <style>
   main {
     padding: 80px 0;
-    max-width: 750px;
+    max-width: 850px;
     width: 90%;
     margin: auto;
     display: flex;
