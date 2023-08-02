@@ -28,7 +28,7 @@ html {
 body {
   background-color: var(--brand-background);
   background-image: url(/background.svg);
-  background-size: 64px;
+  background-size: 50px;
   background-position: 50%, 50%;
   background-origin: content-box;
   font-family: 'Inter', sans-serif;
@@ -57,4 +57,10 @@ a {
 
 ul {
   color: var(--brand-secondary);
+}
+
+#hline {
+  fill: none;
+  stroke: #333;
+  stroke-width: calc(0.35px - 0.01vw);
 }

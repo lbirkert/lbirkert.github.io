@@ -48,7 +48,7 @@
     display: flex;
     flex-direction: column;
     box-shadow: 0px 0px 25px 10px rgba(0, 0, 0, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid #333;
   }
 
   picture {
@@ -82,7 +82,7 @@
     background-color: var(--brand-background-secondary);
     border-radius: 10px 10px 0 0;
     padding: 10px 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid #333;
   }
 
   header .url {

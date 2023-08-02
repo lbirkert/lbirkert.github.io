@@ -1,32 +1,42 @@
 <script>
+  import Fa from "svelte-fa";
+  import { faCode, faPhone } from "@fortawesome/free-solid-svg-icons";
+  import { page } from "$app/stores";
+
   let scrollY = 0;
 </script>
 
 <svelte:window bind:scrollY />
 
-<nav class:detach={scrollY > 10}>
+<nav class:detach={scrollY > 10} class:root={$page.url.pathname == "/"}>
   <div>
     <!--TODO: logo from hero to navbar-->
-    <a href="/">
-      <picture>
-        <source media="(min-resolution: 2x)" srcset="/lucas_3x.webp" />
-        <source media="(min-resolution: 1x)" srcset="/lucas_2x.webp" />
-
-        <img src="/lucas_1x.webp" alt="Logo" />
-      </picture>
+    <a class="logo" href="/">
+      <img src="/brand/logo/png/logo_light_square_x64.png" alt="Logo" />
+      <h1>Lucas Birkert</h1>
     </a>
     <ul aria-label="links">
       <li>
-        <a href="/#projects">Projects</a>
+        <a href="/#projects">
+          <Fa icon={faCode} />
+          Projects</a
+        >
       </li>
       <li>
-        <a href="/contact#top">Contact</a>
+        <a href="/contact#top">
+          <Fa icon={faPhone} />
+          Contact</a
+        >
       </li>
     </ul>
   </div>
 </nav>
 
 <style>
+  .logo {
+    column-gap: 20px;
+  }
+
   nav {
     width: 100vw;
     position: sticky;
@@ -38,15 +48,21 @@
     background: none;
   }
 
+  nav.root {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
   nav.detach {
     background-color: var(--brand-background-secondary);
     box-shadow: 5px 5px 50px 5px rgba(0, 0, 0, 0.3);
+    opacity: 1;
   }
 
   nav div {
     display: flex;
     width: 90%;
-    max-width: 750px;
+    max-width: 850px;
     margin: auto;
     padding: 10px 0;
   }
@@ -57,13 +73,26 @@
     justify-content: right;
     align-items: center;
     list-style: none;
-    column-gap: 30px;
+    column-gap: 40px;
+  }
+
+  @media (max-width: 500px) {
+    .logo h1 {
+      display: none;
+    }
   }
 
   nav a {
     color: var(--brand-secondary);
     text-decoration: none;
     transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+  }
+
+  nav a h1 {
+    margin-bottom: 0;
   }
 
   nav a:hover {
@@ -73,6 +102,5 @@
   nav img {
     width: 32px;
     height: 32px;
-    border-radius: 20px;
   }
 </style>

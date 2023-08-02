@@ -4,13 +4,6 @@
     import { onMount } from "svelte";
     import { tweened } from "svelte/motion";
     import { cubicOut } from "svelte/easing";
-    import Fa from "svelte-fa";
-    import {
-        faDiscord,
-        faGithub,
-        faGitlab,
-    } from "@fortawesome/free-brands-svg-icons";
-    import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
     let mount = false;
     onMount(() => (mount = browser && true));
@@ -115,41 +108,11 @@
 </svelte:head>
 
 <hero class:mount>
+    <img src="/brand/logo/svg/logo_light_square.svg" alt="Logo" />
     <div>
         <h1>Lucas Birkert</h1>
 
-        <p style="--d:0.1s">Web & Software Development</p>
-        <br />
-
-        <p class="short" style="--d:0.2s">
-            Hey, my name is Lucas and I am an experienced software and web
-            developer from germany.
-        </p>
-
-        <br />
-
-        <ul class="links">
-            <li style="--d:0.2s">
-                <a href="https://discord.gg/Cq2UpzeTnm" aria-label="Discord">
-                    <Fa icon={faDiscord} />
-                </a>
-            </li>
-            <li style="--d:0.3s">
-                <a href="https://github.com/lbirkert" aria-label="Github">
-                    <Fa icon={faGithub} />
-                </a>
-            </li>
-            <li style="--d:0.4s">
-                <a href="https://gitlab.com/lbirkert" aria-label="Gitlab">
-                    <Fa icon={faGitlab} />
-                </a>
-            </li>
-            <li style="--d:0.5s">
-                <a href="mailto:lucasbirkert@gmail.com" aria-label="Email">
-                    <Fa icon={faEnvelope} />
-                </a>
-            </li>
-        </ul>
+        <p>Web & Software Development</p>
     </div>
 </hero>
 
@@ -162,6 +125,12 @@
         <path
             style="fill:var(--brand-background-secondary)"
             d="m -1.6702741,163.66963 c 0,0 22.8354941,-31.58985 40.3040271,-35.83995 18.234713,-4.4365 35.818903,14.94595 54.556512,13.90226 21.351405,-1.18928 38.709505,-20.9064 60.023005,-22.64756 19.25633,-1.57311 56.83154,11.38871 56.83154,11.38871 l 0.0349,31.91975 z"
+        />
+
+        <path
+            id="hline"
+            style=""
+            d="m -1.6702741,163.66963 c 0,0 22.8354941,-31.58985 40.3040271,-35.83995 18.234713,-4.4365 35.818903,14.94595 54.556512,13.90226 21.351405,-1.18928 38.709505,-20.9064 60.023005,-22.64756 19.25633,-1.57311 56.83154,11.38871 56.83154,11.38871"
         />
 
         {#if $scroll <= 1}
@@ -219,63 +188,82 @@
         }
     }
 
-    .short {
-        max-width: 400px;
+    hero h1 {
+        font-size: 60px;
+        font-weight: bolder;
+        margin-bottom: 5px;
     }
 
-    hero h1,
     hero p {
-        opacity: 0;
-        transform: translateX(-20px);
-    }
-
-    hero.mount h1,
-    hero.mount p {
-        animation: 0.4s title ease forwards;
-    }
-
-    hero.mount p {
-        animation-delay: var(--d);
-    }
-
-    hero .links {
-        list-style: none;
-        display: flex;
-        column-gap: 20px;
-    }
-
-    hero .links a {
-        transition: color 0.3s ease;
-    }
-
-    hero .links li {
-        font-size: 25px;
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-
-    hero.mount .links li {
-        animation: 0.4s title ease forwards;
-        animation-delay: var(--d);
-    }
-
-    hero .links a:hover {
-        color: var(--brand-primary);
+        font-size: 28px;
     }
 
     hero {
-        padding: 80px 0;
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    hero.mount {
+        animation: 0.6s title ease forwards;
+    }
+
+    hero img {
+        width: 110px;
+        aspect-ratio: 1;
+        border-radius: 30px;
+    }
+
+    hero {
+        padding-top: 180px;
+        padding-bottom: 180px;
         width: 90%;
-        max-width: 750px;
+        max-width: 850px;
         margin: auto;
         display: flex;
-        column-gap: 30px;
+        justify-content: center;
+        align-items: center;
+        column-gap: 50px;
         row-gap: 40px;
+        text-align: center;
+    }
+
+    @media (max-width: 800px) {
+        hero h1 {
+            font-size: 50px;
+        }
+        hero p {
+            font-size: 23.5px;
+        }
+
+        hero img {
+            width: 90px;
+        }
+
+        hero {
+            column-gap: 30px;
+        }
     }
 
     @media (max-width: 550px) {
         hero {
-            padding: 60px 0;
+            padding-top: 120px;
+            padding-bottom: 160px;
+        }
+
+        hero h1 {
+            font-size: 40px;
+        }
+
+        hero p {
+            font-size: 19px;
+        }
+
+        hero {
+            flex-direction: column;
+        }
+
+        hero img {
+            width: 260px;
         }
     }
 
