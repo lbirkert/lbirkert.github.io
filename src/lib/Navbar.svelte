@@ -45,11 +45,11 @@
     margin: 0;
     line-height: 1;
     font-size: 20px;
-    margin-right: 10px;
+    margin-right: 8px;
   }
 
   .logo p {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1;
   }
 

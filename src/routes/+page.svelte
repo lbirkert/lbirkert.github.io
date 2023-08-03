@@ -169,14 +169,13 @@
 
     <div class="projects">
         <div id="projects" />
-        <br />
         <section>
             <h1>Projects</h1>
             <p>
                 I've done 'em all. From web design to hard metal embedded
-                programming. You can see a few of the project pages for my
-                projects here. On my github you can find a few more unpolished
-                side-projects I did.
+                programming. You can see a few of the project's pages here. On
+                my github you can find a few more unpolished side-projects of
+                whom I am the creator.
             </p>
 
             <br />
@@ -381,7 +380,7 @@
 
     .projects {
         position: relative;
-        padding: calc(2.5vw + 50px) 15px;
+        padding: calc(2.5vw + 90px) 15px;
         text-align: justify;
     }
 
@@ -409,6 +408,6 @@
 
     #projects {
         position: absolute;
-        transform: translateY(-60px);
+        transform: translateY(-110px);
     }
 </style>
