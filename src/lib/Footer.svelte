@@ -21,7 +21,7 @@
     padding: 30px 20px;
     padding-top: 60px;
     text-align: center;
-    border-top: 1px solid rgba(200, 200, 200, 0.08);
+    border-top: 2px solid rgba(200, 200, 200, 0.08);
   }
 
   div {

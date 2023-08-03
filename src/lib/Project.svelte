@@ -144,7 +144,7 @@
     border-radius: 10px;
     padding: 10px 15px;
     transition: transform 0.3s ease;
-    border: 1px solid #333;
+    border: 1px solid rgba(200, 200, 200, 0.08);
     max-width: 400px;
   }
 
