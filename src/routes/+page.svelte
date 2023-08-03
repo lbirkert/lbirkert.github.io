@@ -180,7 +180,7 @@
 
             <br />
 
-            <a class="button" href="#projects">
+            <a class="button" href="https://github.com/lbirkert">
                 <Fa icon={faGithub} />
                 Github
             </a>
