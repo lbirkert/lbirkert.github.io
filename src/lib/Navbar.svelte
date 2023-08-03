@@ -3,17 +3,24 @@
   import { faCode, faPhone } from "@fortawesome/free-solid-svg-icons";
   import { page } from "$app/stores";
 
-  let scrollY = 0;
+  let scrollY = 0,
+    innerHeight = 0,
+    innerWidth = 0;
+  $: isRoot = $page.url.pathname == "/";
 </script>
 
-<svelte:window bind:scrollY />
+<svelte:window bind:scrollY bind:innerHeight bind:innerWidth />
 
-<nav class:detach={scrollY > 10} class:root={$page.url.pathname == "/"}>
+<nav
+  class:detach={scrollY > (isRoot ? innerHeight + innerWidth * 0.2 : 0)}
+  class:root={isRoot}
+>
   <div>
     <!--TODO: logo from hero to navbar-->
     <a class="logo" href="/">
       <img src="/brand/logo/png/logo_light_square_x64.png" alt="Logo" />
       <h1>Lucas Birkert</h1>
+      <p>Web & Software Development</p>
     </a>
     <ul aria-label="links">
       <li>
@@ -33,13 +40,27 @@
 </nav>
 
 <style>
-  .logo {
-    column-gap: 20px;
+  .logo h1 {
+    font-weight: bold;
+    margin: 0;
+    line-height: 1;
+    font-size: 20px;
+    margin-right: 10px;
+  }
+
+  .logo p {
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  .logo img {
+    height: 20px;
+    width: 20px;
   }
 
   nav {
     width: 100vw;
-    position: sticky;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 100;
@@ -51,11 +72,13 @@
   nav.root {
     opacity: 0;
     transition: opacity 0.3s ease;
+    pointer-events: none;
   }
 
   nav.detach {
     background-color: var(--brand-background-secondary);
     box-shadow: 5px 5px 50px 5px rgba(0, 0, 0, 0.3);
+    pointer-events: auto;
     opacity: 1;
   }
 
@@ -74,6 +97,12 @@
     align-items: center;
     list-style: none;
     column-gap: 40px;
+  }
+
+  @media (max-width: 800px) {
+    .logo p {
+      display: none;
+    }
   }
 
   @media (max-width: 550px) {
@@ -97,10 +126,5 @@
 
   nav a:hover {
     color: var(--brand-primary);
-  }
-
-  nav img {
-    width: 32px;
-    height: 32px;
   }
 </style>

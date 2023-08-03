@@ -1,4 +1,10 @@
-<footer>
+<script lang="ts">
+  import { page } from "$app/stores";
+
+  $: isRoot = $page.url.pathname == "/";
+</script>
+
+<footer class:root={isRoot}>
   <div>
     <img src="/brand/logo/svg/logo_dark_square.svg" alt="logo" />
     <p>
@@ -21,6 +27,9 @@
     padding: 30px 20px;
     padding-top: 60px;
     text-align: center;
+  }
+
+  footer.root {
     border-top: 2px solid rgba(200, 200, 200, 0.08);
   }
 

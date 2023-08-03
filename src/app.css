@@ -64,3 +64,26 @@ ul {
   stroke: #333;
   stroke-width: calc(0.35px - 0.01vw);
 }
+    
+button, .button {
+  background-color: var(--brand-background);
+  border: 2px solid rgba(200, 200, 200, 0.08);
+  padding: 0.4em 0.8em;
+  border-radius: 0.5em;
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease,
+      border-color 0.3s ease;
+  color: var(--brand-secondary);
+  display: inline-block;
+}
+
+button :global(svg), .button :global(svg) {
+  margin-right: 0.2em;
+}
+
+button:hover, .button:hover {
+  background-color: white;
+  border-color: transparent;
+  color: black;
+}

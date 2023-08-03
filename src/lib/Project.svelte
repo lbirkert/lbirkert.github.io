@@ -103,7 +103,7 @@
 
   @media (max-width: 400px) {
     header .url {
-      font-size: 13px;
+      font-size: 14px;
     }
   }
 

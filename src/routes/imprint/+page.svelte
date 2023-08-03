@@ -139,6 +139,7 @@
 <style>
   main {
     padding: 80px 0;
+    padding-top: 120px;
     max-width: 850px;
     width: 90%;
     margin: auto;
@@ -147,6 +148,7 @@
   @media (max-width: 550px) {
     main {
       padding: 60px 0;
+      padding-top: 100px;
     }
   }
 </style>

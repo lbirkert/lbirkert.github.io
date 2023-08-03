@@ -1,9 +1,12 @@
 <script lang="ts">
+    import Fa from "svelte-fa";
+    import { faGithub } from "@fortawesome/free-brands-svg-icons";
     import { browser } from "$app/environment";
     import Project from "$lib/Project.svelte";
     import { onMount } from "svelte";
     import { tweened } from "svelte/motion";
     import { cubicOut } from "svelte/easing";
+    import { faCode, faPhone } from "@fortawesome/free-solid-svg-icons";
 
     let mount = false;
     onMount(() => (mount = browser && true));
@@ -78,11 +81,12 @@
         return { x, y };
     }
 
-    let scrollY = 0;
-    let innerWidth = 0;
+    let scrollY = 0,
+        innerWidth = 0,
+        innerHeight = 0;
 
     let scroll = tweened(0, { duration: 400, easing: cubicOut });
-    $: scroll.set(scrollY / (innerWidth * 0.2 + 450));
+    $: scroll.set(scrollY / (innerHeight + innerWidth * 0.2));
 
     $: circle_r = 1000 / innerWidth;
     $: circles = Math.floor(innerWidth / 100);
@@ -101,19 +105,36 @@
     }
 </script>
 
-<svelte:window bind:scrollY bind:innerWidth />
+<svelte:window bind:scrollY bind:innerWidth bind:innerHeight />
 
 <svelte:head>
     <title>Lucas Birkert</title>
 </svelte:head>
 
 <hero class:mount>
-    <img src="/brand/logo/svg/logo_light_square.svg" alt="Logo" />
-    <div>
-        <h1>Lucas Birkert</h1>
+    <div class="logo">
+        <img src="/brand/logo/svg/logo_light_square.svg" alt="Logo" />
+        <div>
+            <h1>Lucas Birkert</h1>
 
-        <p>Web & Software Development</p>
+            <p>Web & Software Development</p>
+        </div>
     </div>
+
+    <ul class="actions">
+        <li>
+            <a class="button" href="#projects">
+                <Fa icon={faCode} />
+                Projects
+            </a>
+        </li>
+        <li>
+            <a class="button" href="/contact">
+                <Fa icon={faPhone} />
+                Contact
+            </a>
+        </li>
+    </ul>
 </hero>
 
 <div class="content">
@@ -146,8 +167,25 @@
         {/if}
     </svg>
 
-    <div id="projects" />
     <div class="projects">
+        <div id="projects" />
+        <br />
+        <section>
+            <h1>Projects</h1>
+            <p>
+                I've done 'em all. From web design to hard metal embedded
+                programming. You can see a few of the project pages for my
+                projects here. On my github you can find a few more unpolished
+                side-projects I did.
+            </p>
+
+            <br />
+
+            <a class="button" href="#projects">
+                <Fa icon={faGithub} />
+                Github
+            </a>
+        </section>
         <ul>
             <li>
                 <Project
@@ -198,13 +236,13 @@
         }
     }
 
-    hero h1 {
+    .logo h1 {
         font-size: 60px;
         font-weight: bolder;
         margin-bottom: 5px;
     }
 
-    hero p {
+    .logo p {
         font-size: 28px;
     }
 
@@ -217,10 +255,16 @@
         animation: 0.6s title ease forwards;
     }
 
-    hero img {
+    .logo img {
         width: 110px;
         aspect-ratio: 1;
         border-radius: 30px;
+    }
+
+    hero .logo {
+        display: flex;
+        column-gap: 50px;
+        row-gap: 40px;
     }
 
     hero {
@@ -229,51 +273,96 @@
         width: 90%;
         max-width: 850px;
         margin: auto;
+        text-align: center;
+        min-height: 100vh;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
-        column-gap: 50px;
-        row-gap: 40px;
-        text-align: center;
+        row-gap: 50px;
+    }
+
+    hero .actions {
+        display: flex;
+        column-gap: 20px;
+        list-style: none;
+        font-size: 18px;
+        justify-content: center;
+    }
+
+    section {
+        max-width: 600px;
+        padding-left: 40px;
+        position: relative;
+        margin: auto;
+    }
+
+    section h1 {
+        position: absolute;
+        transform: translate(-50%, -50%) rotate(0.75turn);
+        left: 10px;
+        top: 50%;
+        letter-spacing: 3px;
+        line-height: 1;
+        margin: 0;
     }
 
     @media (max-width: 800px) {
-        hero h1 {
+        .logo h1 {
             font-size: 50px;
         }
-        hero p {
+        .logo p {
             font-size: 23.5px;
         }
 
-        hero img {
+        .logo img {
             width: 90px;
         }
 
-        hero {
+        .logo {
             column-gap: 30px;
+        }
+
+        section h1 {
+            position: initial;
+            transform: none;
+            letter-spacing: initial;
+            margin-bottom: 15px;
+        }
+
+        section {
+            padding: 0 10px;
         }
     }
 
     @media (max-width: 550px) {
         hero {
-            padding-top: 120px;
-            padding-bottom: 160px;
+            row-gap: 40px;
         }
 
-        hero h1 {
+        hero .actions {
+            font-size: 18px;
+            column-gap: 10px;
+        }
+
+        .logo h1 {
             font-size: 40px;
         }
 
-        hero p {
+        .logo p {
             font-size: 19px;
         }
 
-        hero {
+        .logo {
             flex-direction: column;
         }
 
-        hero img {
+        .logo img {
             width: 260px;
+        }
+
+        section p {
+            text-align: left;
         }
     }
 
@@ -290,8 +379,14 @@
         margin-top: 20vw;
     }
 
+    .projects {
+        position: relative;
+        padding: calc(2.5vw + 50px) 15px;
+        text-align: justify;
+    }
+
     .projects ul {
-        padding: calc(2.5vw + 25px) 15px;
+        margin-top: calc(2vw + 50px);
         overflow-x: scroll;
         display: flex;
         flex-wrap: wrap;
