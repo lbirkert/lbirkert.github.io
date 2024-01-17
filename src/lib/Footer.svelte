@@ -9,8 +9,8 @@
     <img src="/brand/logo/svg/logo_dark_square.svg" alt="logo" />
     <p>
       Lucas Birkert is a passionate web and software developer who has started
-      teaching himself programming in 2020. Since then he has grown to finish a
-      ton of projects in the web, software, mobile and automation branche.
+      teaching himself programming in 2020. Since then he has grown to finish
+      numerous projects in the web, software, mobile and automation branche.
     </p>
   </div>
   <br />
