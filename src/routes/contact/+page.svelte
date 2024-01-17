@@ -3,26 +3,12 @@
     <h1>Contact</h1>
 
     <p>
-      Please consider contacting me via <a href="mailto:lucas.birkert@gmail.com"
-        >email</a
-      > only
-    </p>
-
-    <br />
-
-    <ul>
-      <li>to talk about freelancing work</li>
-      <li>to propose a job offer</li>
-      <li>to report copyright enfrightements</li>
-      <li>to discuss legal issues with this site</li>
-    </ul>
-
-    <br />
-
-    <p>
-      You may also join my <a href="https://discord.gg/Cq2UpzeTnm"
-        >Discord Server</a
-      >.
+      For inquiries, collaborations, or just a friendly conversation,
+      feel free to reach out to me! You can contact me via email at
+      <a href="mailto:lucasbirkert@gmail.com">lucasbirkert@gamil.com</a>
+      for a prompt response. Additionally, I'm available on <a href="https://discord.gg/Cq2UpzeTnm">Discord</a>
+      – drop me a message, and let's connect. I'm excited to discuss potential projects,
+      share ideas, or answer any questions you may have. Looking forward to hearing from you!
     </p>
 
     <br />
