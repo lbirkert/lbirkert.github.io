@@ -172,10 +172,9 @@
         <section>
             <h1>Projects</h1>
             <p>
-                I've done 'em all. From web design to hard metal embedded
-                programming. You can see a few of the project's pages here. On
-                my github you can find a few more unpolished side-projects of
-                whom I am the creator.
+                From UI/UX and web design to bare metal programming in embedded
+                and system languages. Here are a few of my project showcased. On
+                my github you can find a few more unpolished side-projects I have created.
             </p>
 
             <br />
