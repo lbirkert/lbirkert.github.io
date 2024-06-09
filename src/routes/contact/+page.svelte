@@ -5,7 +5,7 @@
     <p>
       For inquiries, collaborations, or just a friendly conversation,
       feel free to reach out to me! You can contact me via email at
-      <a href="mailto:lucasbirkert@gmail.com">lucasbirkert@gamil.com</a>
+      <a href="mailto:lucasbirkert@gmail.com">lucasbirkert@gmail.com</a>
       for a prompt response. Additionally, I'm available on <a href="https://discord.gg/Cq2UpzeTnm">Discord</a>
       – drop me a message, and let's connect. I'm excited to discuss potential projects,
       share ideas, or answer any questions you may have. Looking forward to hearing from you!
